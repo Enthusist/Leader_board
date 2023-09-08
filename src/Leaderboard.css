@@ -1,0 +1,144 @@
+/* src/components/Leaderboard.css */
+
+/* Style for the <li> elements (player boxes) */
+
+.yep {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-color: black;
+    border-radius: 10px;
+    text-align-last: center;
+}
+
+.ye {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-color: black;
+  border-radius: 10px;
+  text-align-last: center;
+}
+
+.csoc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.fsoc {
+    margin-left: 35px;
+}
+
+.whi { 
+
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 40px;
+}
+
+
+.sus_button {
+    padding: 10px;
+    background-color: white;
+    width: 200px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.heh {
+    margin-left: 400px;
+}
+
+.t {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.player-box {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 50px;
+    background-color: rgba(143, 143, 136, 0.6);
+
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-width: 10px;
+    border-color: black;
+
+    border-radius: 5px;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+    animation: slideUp 0.5s ease-in-out; /* Add a sliding animation */
+  }
+  
+  /* Stylish buttons */
+  .score-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  /* Hover effect for the buttons */
+  .score-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style for the top player buttons (larger size) */
+  .top-player {
+    margin-left: 0px;
+    padding: 16px;
+    width: 900px;
+  }
+  
+  .sec-player {
+    margin-left: 25px;
+    font-size: 1.2rem;
+    padding: 13px;
+    width: 850px;
+  }
+
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Add styles for the rotating image container */
+.rotating-image-container {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center;
+}
+
+/* Add styles for the rotating image */
+.rotating-image {
+  margin-left: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 269px;
+
+  align-self: center;
+  justify-self: center; /* Adjust the animation duration as needed */
+}
+
+/* Define the rotation animation */
+

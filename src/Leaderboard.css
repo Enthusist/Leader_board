@@ -3,6 +3,7 @@
 /* Style for the <li> elements (player boxes) */
 
 .yep {
+    margin-right: 30px;
     padding: 10px;
     margin-bottom: 10px;
     border-color: black;
@@ -11,6 +12,7 @@
 }
 
 .ye {
+  margin-right: 30px;
   padding: 10px;
   margin-bottom: 10px;
   border-color: black;
@@ -39,6 +41,7 @@
 
 
 .sus_button {
+    margin-right: 30px;
     padding: 10px;
     background-color: white;
     width: 200px;

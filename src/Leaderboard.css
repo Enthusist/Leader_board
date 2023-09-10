@@ -147,6 +147,9 @@
     .player-box {
       width: 100%;
       font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   
     .score-button {

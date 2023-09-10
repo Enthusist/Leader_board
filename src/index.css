@@ -29,7 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url('letsgo.png'); /* Replace with the actual path to your image */
+  background-image: url('./assets/letsgo.jpg'); /* Replace with the actual path to your image */
   background-size: cover; /* Adjust the background size as needed */
   background-repeat: no-repeat;
   background-position: center;

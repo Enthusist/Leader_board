@@ -114,93 +114,45 @@
   }
 
 
-  @keyframes slideUp {
-    from {
-      transform: translateY(100%);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
+  @media (max-width: 768px) {
+    /* Modify your styles for smaller screens (mobile) here */
   
-  /* Add styles for the rotating image container */
-.rotating-image-container {
-  display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center;
-}
-
-/* Add styles for the rotating image */
-.rotating-image {
-  margin-left: 500px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 600px;
-  height: 269px;
-
-  align-self: center;
-  justify-self: center; /* Adjust the animation duration as needed */
-}
-
-/* Define the rotation animation */
-
-/* Default styles for larger screens */
-
-/* ... (your existing CSS) ... */
-
-/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
-@media (max-width: 768px) {
-  /* Modify your styles for smaller screens (mobile) here */
-
-  .yep, .ye {
-    margin-right: 10px;
-    margin-left: 10px;
-    padding: 5px;
-    border-radius: 5px;
-  }
-
-  .csoc {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
-}
-
-  .sus_button {
-    margin-right: 10px;
-    width: 150px;
-  }
-
-  .heh {
-    margin-left: 0;
-  }
-
-  .player-box {
-    width: 100%;
-    font-size: 0.9rem;
-  }
-
-  .score-button {
-    padding: 3px 6px;
-    margin-left: 5px;
-  }
-
-  /* You can continue adjusting other styles as needed for smaller screens */
-
-  /* Adjustments for rotating image container and image */
-
-  .rotating-image-container {
-    justify-content: center;
-  }
-
-  .rotating-image {
-
-    margin-left: 0;
-    width: 100%;
-    max-width: 300px; /* Adjust the max-width as needed */
-    height: auto; /* Maintain aspect ratio */
-  }
-}
+    /* Your responsive adjustments */
+  
+    .yep, .ye {
+      margin-right: 10px;
+      margin-left: 10px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  
+    .csoc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      justify-items: center;
+    }
+  
+    .sus_button {
+      margin-right: 10px;
+      width: 150px;
+    }
+  
+    .heh {
+      margin-left: 0;
+    }
+  
+    .player-box {
+      width: 100%;
+      font-size: 0.9rem;
+    }
+  
+    .score-button {
+      padding: 3px 6px;
+      margin-left: 5px;
+    }
+  
+    /* You can continue adjusting other styles as needed for smaller screens */
+  }  

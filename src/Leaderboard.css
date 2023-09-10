@@ -145,8 +145,8 @@
     }
   
     .player-box {
-      margin-left: -50px;
-      width: 100%;
+      margin-left: -40px;
+      width: 300px;
       font-size: 0.9rem;
       display: flex;
       justify-content: space-between;

@@ -179,11 +179,13 @@
   }
 
   .player-box {
-    margin-right: -50px;
+    margin-right: 200px;
     width: 100%;
     font-size: 0.9rem;
   }
 
+
+  
   .score-button {
     padding: 3px 6px;
     margin-left: 5px;

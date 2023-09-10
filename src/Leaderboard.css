@@ -155,8 +155,8 @@
     }
   
     .player-box {
-      margin-left: -25px;
-      width: 250px;
+      margin-left: -30px;
+      width: 275px;
       font-size: 0.9rem;
       display: flex;
       justify-content: space-between;
@@ -164,7 +164,7 @@
     }
   
     .top-player {
-margin-left: -30px;
+margin-left: -35px;
     }
 
     .score-button {

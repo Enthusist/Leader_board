@@ -179,6 +179,7 @@
   }
 
   .player-box {
+    margin-right: 50px;
     width: 100%;
     font-size: 0.9rem;
   }

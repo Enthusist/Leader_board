@@ -36,7 +36,7 @@
 .whi { 
 
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-left: 40px;
+  
 }
 
 
@@ -145,3 +145,55 @@
 
 /* Define the rotation animation */
 
+/* Default styles for larger screens */
+
+/* ... (your existing CSS) ... */
+
+/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+@media (max-width: 768px) {
+  /* Modify your styles for smaller screens (mobile) here */
+
+  .yep, .ye {
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .csoc {
+    margin-left: 0;
+  }
+
+  .sus_button {
+    margin-right: 10px;
+    width: 150px;
+  }
+
+  .heh {
+    margin-left: 0;
+  }
+
+  .player-box {
+    margin-left: 10px;
+    width: 100%;
+  }
+
+  .score-button {
+    padding: 3px 6px;
+    margin-left: 5px;
+  }
+
+  /* You can continue adjusting other styles as needed for smaller screens */
+
+  /* Adjustments for rotating image container and image */
+  .rotating-image-container {
+    justify-content: center;
+  }
+
+  .rotating-image {
+    margin-left: 0;
+    width: 100%;
+    max-width: 300px; /* Adjust the max-width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+}

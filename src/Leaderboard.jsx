@@ -219,7 +219,7 @@ if (codeEntered === 1)
           <div>
           </div>
         </div>
-        <ul>
+        <ul className="list">
           {sortedPlayerData &&
             sortedPlayerData.map((player) => (
               <li

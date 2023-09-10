@@ -114,6 +114,16 @@
   }
 
 
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
   @media (max-width: 768px) {
     /* Modify your styles for smaller screens (mobile) here */
   

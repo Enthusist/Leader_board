@@ -38,14 +38,15 @@ function Leaderboard() {
   };
 
   const addPlayer = async () => {
-    if (inputValue.trim() !== "") {
+
+if (sortedPlayerData.length <11)    {    if (inputValue.trim() !== "") {
       await firestore.collection("players").add({
         name: inputValue,
         score: 0,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       });
       setInputValue("");
-    }
+    }}
   };
 
 
@@ -108,6 +109,7 @@ const sortedPlayerData = playerData
   ? [...playerData].sort((a, b) => b.score - a.score)
   : [];
 
+  
 
 
   const handleCodeSubmit = () => {
@@ -121,12 +123,6 @@ const sortedPlayerData = playerData
 
   };
 
-  useEffect(() => {
-    const refreshInterval = setInterval(() => {
-      window.location.reload();
-    }, 5000);
-    return () => clearInterval(refreshInterval);
-  }, []);
 
 
    if (codeEntered === 0) {

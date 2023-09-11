@@ -115,7 +115,7 @@ const sortedPlayerData = playerData
     if (inputValuec.trim() === "um6p") {
       setCodeEntered(2);
     }
-    if (inputValuec.trim() === "fmsbreak") {
+    if (inputValuec.trim() === "toyota") {
       setCodeEntered(1);
     }
 

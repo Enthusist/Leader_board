@@ -121,6 +121,13 @@ const sortedPlayerData = playerData
 
   };
 
+  useEffect(() => {
+    const refreshInterval = setInterval(() => {
+      window.location.reload();
+    }, 5000);
+    return () => clearInterval(refreshInterval);
+  }, []);
+
 
    if (codeEntered === 0) {
     return (

@@ -210,3 +210,18 @@ justify-self: center;
 justify-content: center;
 justify-items: center;
   }
+
+  .csoc {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    background-color: rgba(194, 194, 175, 0.3);
+    height: 600px;
+    width: 300px;
+    border-radius: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      justify-items: center;
+  }

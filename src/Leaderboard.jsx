@@ -3,7 +3,7 @@ import "./Leaderboard.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-
+import crown from './assets/crown.png';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCI7kdhzDVF5kfX6LmaZROQWFJB4IwfLAs",
@@ -128,7 +128,7 @@ const sortedPlayerData = playerData
    if (codeEntered === 0) {
     return (
       <div className="csoc">
-        <h1 className="whi">Enter Code</h1>
+        <h1 className="whi">GAME START</h1>
         <div className="fsoc">
           <div>
             <input
@@ -163,7 +163,7 @@ const sortedPlayerData = playerData
 
 if (codeEntered === 1)
 {  return (
-    <div className="csoc">
+    <div className="cosoc">
       <h1 className="whi">Leaderboard</h1>
       <div className="fsoc">
         <div>
@@ -189,6 +189,10 @@ if (codeEntered === 1)
               className={`player-box ${player === sortedPlayerData[0] ? "top-player" : ""} ${player === sortedPlayerData[1] ? "sec-player" : ""}`}
             >
               <p>{player.name}</p>
+
+
+
+              
               <p>Score: {player.score}</p>
               <button
                 className="score-button"
@@ -216,7 +220,7 @@ if (codeEntered === 1)
 
   if (codeEntered === 2)
   {  return (
-      <div className="csoc">
+      <div className="cosoc">
         <h1 className="whi">Leaderboard</h1>
         <div className="fsoc">
           <div>
@@ -229,13 +233,14 @@ if (codeEntered === 1)
                 key={player.name}
                 className={`player-box ${player === sortedPlayerData[0] ? "top-player" : ""}`}
               >
-                <p>{player.name}</p>
+                <p># {player.name}</p>
+                {player === sortedPlayerData[0] ? (<img src={crown} alt="Crown" />) : (null)}
                 <p>Score: {player.score}</p>
               </li>
             ))}
         </ul>
       </div>
-    );}
+    );} 
 
 }
 

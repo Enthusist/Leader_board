@@ -21,6 +21,21 @@
 }
 
 .csoc {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  background-color: rgba(194, 194, 175, 0.3);
+  height: 600px;
+  width: 600px;
+  border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.cosoc {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,13 +49,23 @@
 }
 
 .whi { 
+  color: aliceblue;
 
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:Arcade_N;
   
 }
 
 
+@font-face {
+  font-family: Arcade_N;
+  src: url(../public/ARCADE_N.TTF);
+}
+
+
+
 .sus_button {
+  border-radius: 3px;
+  border-color: black;
     margin-right: 30px;
     padding: 10px;
     background-color: white;
@@ -56,13 +81,15 @@
 }
 
 .t {
-  font-size: 14px;
-  font-weight: bold;
+  color: aliceblue;
+  font-size: 10px;
+  font-family: Arcade_N;
 }
 
 .player-box {
     font-size: 1.2rem;
-    font-weight: 700;
+    font-family:Arcade_N;
+
     margin-left: 50px;
     background-color: rgba(143, 143, 136, 0.6);
 
@@ -72,7 +99,7 @@
     border-width: 10px;
     border-color: black;
 
-    border-radius: 5px;
+    border-radius: 15px;
     width: 800px;
     display: flex;
     justify-content: space-between;
@@ -101,7 +128,7 @@
   
   /* Style for the top player buttons (larger size) */
   .top-player {
-    margin-left: 0px;
+    margin-left: -5px;
     padding: 16px;
     width: 900px;
   }

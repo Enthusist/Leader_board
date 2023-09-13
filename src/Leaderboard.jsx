@@ -39,7 +39,7 @@ function Leaderboard() {
 
   const addPlayer = async () => {
 
-if (sortedPlayerData.length <11)    {    if (inputValue.trim() !== "") {
+if (sortedPlayerData.length <15)    {    if (inputValue.trim() !== "") {
       await firestore.collection("players").add({
         name: inputValue,
         score: 0,

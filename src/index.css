@@ -45,14 +45,14 @@ body {
 h1 {
   
 /* font-weight:bolder; */
-  font-size: 3em;
+  font-size: 2.5em;
   line-height: 1.1;
 }
 
 h2 {
   color: aliceblue;
   font-family: Arcade_N;
-  font-size: 2em;
+  font-size: 1.5em;
   text-decoration: underline;
 }
 

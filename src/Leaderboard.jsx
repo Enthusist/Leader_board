@@ -222,10 +222,6 @@ if (codeEntered === 1)
   {  return (
       <div className="cosoc">
         <h1 className="whi">Leaderboard</h1>
-        <div className="fsoc">
-          <div>
-          </div>
-        </div>
         <ul className="list">
           {sortedPlayerData &&
             sortedPlayerData.map((player) => (

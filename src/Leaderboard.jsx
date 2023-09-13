@@ -230,7 +230,7 @@ if (codeEntered === 1)
                 className={`player-box ${player === sortedPlayerData[0] ? "top-player" : ""}`}
               >
                 <p># {player.name}</p>
-                {player === sortedPlayerData[0] ? (<img src={crown} alt="Crown" />) : (null)}
+                {player === sortedPlayerData[0] ? (<img className="jol" src={crown} alt="Crown" />) : (null)}
                 <p>Score: {player.score}</p>
               </li>
             ))}

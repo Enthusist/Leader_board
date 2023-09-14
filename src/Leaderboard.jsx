@@ -114,10 +114,10 @@ const sortedPlayerData = playerData
 
   const handleCodeSubmit = () => {
     // Check if the entered code is correct (e.g., "mySecretCode")
-    if (inputValuec.trim() === "um6p") {
+    if (inputValuec.trim() === "Um6p") {
       setCodeEntered(2);
     }
-    if (inputValuec.trim() === "toyota") {
+    if (inputValuec.trim() === "Fmsbreak") {
       setCodeEntered(1);
     }
 

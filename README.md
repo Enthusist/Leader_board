@@ -1,6 +1,4 @@
 # Leade-Board website:
 
 This is a website that shows a leader-board that you can be update it in real time.
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+All contributions are welcomed, the needed features are the adaptaiton with the mobile devices.

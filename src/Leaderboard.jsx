@@ -4,6 +4,10 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import crown from './assets/crown.png';
+// import { useDrag } from 'react-dnd'
+import axios from "axios";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import StorageList from "./storage_list";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCI7kdhzDVF5kfX6LmaZROQWFJB4IwfLAs",
@@ -16,17 +20,28 @@ const firebaseConfig = {
 };
 
 
+
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
 const firestore = firebase.firestore();
 
+// Create a root reference
+
+
+
+// uploadBytes(storageRef, file).then((snapshot) => {
+//   console.log('Uploaded a blob or file!');
+//   getDownloadURL(storageRef.snapshot.ref).then((downloadURL) => {
+//     console.log('File available at', downloadURL);
+//   });
+// });
 
 function Leaderboard() {
   const [inputValue, setInputValue] = useState("");
   const [inputValuec, setInputValuec] = useState("");
-
+  const [SelectedFile, SetSelectedFile] = useState(null);
   const [codeEntered, setCodeEntered] = useState(0);
 
   const handleInputChange = (e) => {
@@ -50,7 +65,80 @@ if (sortedPlayerData.length <15)    {    if (inputValue.trim() !== "") {
   };
 
 
-  
+
+// On file select (from the pop up)
+const onFileChange = (event) => {
+    // Update the state
+SetSelectedFile(event.target.files[0]);
+};
+
+// On file upload (click the upload button)
+// const onFileUpload = () => {
+//     // Create an object of formData
+//     const formData = new FormData();
+
+//     // Update the formData object
+//     formData.append(
+//         "myFile",
+//         SelectedFile,
+//         SelectedFile.name
+//     );
+
+//     // Details of the uploaded file
+//     console.log(SelectedFile);
+
+//     // Request made to the backend api
+//     // Send formData object
+//     axios.post("api/uploadfile", formData);
+// };
+
+const onFileUpload = () => {
+  if (SelectedFile) {
+
+    const storage = getStorage();
+
+    const storageRef = ref(storage, 'your-folder/' + SelectedFile.name); // Replace 'your-folder' with your desired folder in Firebase Storage
+
+      uploadBytes(storageRef, SelectedFile).then((snapshot) => {
+          console.log('Uploaded a blob or file!');
+          getDownloadURL(snapshot.ref).then((downloadURL) => {
+              console.log('File available at', downloadURL);
+              // Handle the download URL, you can save it in state or wherever you need
+          }).catch((error) => {
+              // Handle any errors
+              console.error('Error getting download URL:', error);
+          });
+      }).catch((error) => {
+          // Handle any errors
+          console.error('Error uploading file:', error);
+      });
+  } else {
+      console.log('No file selected!');
+  }
+};
+
+
+
+const fileData = () => {
+  if (SelectedFile) {
+    return (
+      <div>
+        <h2>File Details:</h2>
+        <p>Name: {SelectedFile.name}</p>
+        <p>Type: {SelectedFile.type}</p>
+        <p>Last Modified: {SelectedFile.lastModifiedDate.toDateString()}</p>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h2>File Details:</h2>
+        <p>Choose a file before pressing the Upload button</p>
+      </div>
+    );
+  }
+};
+
 
   const query = firestore.collection("players").orderBy("score", "desc"); // Order by score in descending order
 
@@ -112,12 +200,13 @@ const sortedPlayerData = playerData
   
 
 
+
   const handleCodeSubmit = () => {
     // Check if the entered code is correct (e.g., "mySecretCode")
-    if (inputValuec.trim() === "Um6p") {
+    if (inputValuec.trim() === "fmsbreak") {
       setCodeEntered(2);
     }
-    if (inputValuec.trim() === "Fmsbreak") {
+    if (inputValuec.trim() === "amogus") {
       setCodeEntered(1);
     }
 
@@ -166,6 +255,7 @@ if (codeEntered === 1)
     <div className="cosoc">
       <h1 className="whi">Leaderboard</h1>
       <div className="fsoc">
+
         <div>
           <input
             className="yep"
@@ -235,6 +325,21 @@ if (codeEntered === 1)
               </li>
             ))}
         </ul>
+        <div>
+          <div>
+                    <input
+                        type="file"
+                        onChange={onFileChange}
+                    />
+                    <button onClick={onFileUpload}>
+                        Upload!
+                    </button>
+                </div>
+                {fileData()}
+            </div>
+           
+
+                <StorageList />
       </div>
     );} 
 

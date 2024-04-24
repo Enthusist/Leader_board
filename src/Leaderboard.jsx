@@ -9,6 +9,7 @@ import axios from "axios";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import StorageList from "./storage_list";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyCI7kdhzDVF5kfX6LmaZROQWFJB4IwfLAs",
   authDomain: "leaderboard-76800.firebaseapp.com",
@@ -43,7 +44,7 @@ function Leaderboard() {
   const [inputValuec, setInputValuec] = useState("");
   const [SelectedFile, SetSelectedFile] = useState(null);
   const [codeEntered, setCodeEntered] = useState(0);
-
+  const [color, setColor] = useState("white");
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -101,6 +102,9 @@ const onFileUpload = () => {
 
       uploadBytes(storageRef, SelectedFile).then((snapshot) => {
           console.log('Uploaded a blob or file!');
+          setColor('green');
+
+
           getDownloadURL(snapshot.ref).then((downloadURL) => {
               console.log('File available at', downloadURL);
               // Handle the download URL, you can save it in state or wherever you need
@@ -117,7 +121,9 @@ const onFileUpload = () => {
   }
 };
 
-
+useEffect(() => {
+            
+},[color]);
 
 const fileData = () => {
   if (SelectedFile) {
@@ -311,7 +317,7 @@ if (codeEntered === 1)
   if (codeEntered === 2)
   {  return (
       <div className="cosoc">
-        <h1 className="whi">Leaderboard</h1>
+        <h1 className="whi" style={{color: color}} >Leaderboard</h1>
         <ul className="list">
           {sortedPlayerData &&
             sortedPlayerData.map((player) => (
@@ -330,6 +336,7 @@ if (codeEntered === 1)
                     <input
                         type="file"
                         onChange={onFileChange}
+                        onClick={() => (setColor('white'))}
                     />
                     <button onClick={onFileUpload}>
                         Upload!
@@ -339,7 +346,7 @@ if (codeEntered === 1)
             </div>
            
 
-                <StorageList />
+                <StorageList variable={color} />
       </div>
     );} 
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage';
 
-const StorageList = () => {
+const StorageList = (variable) => {
     const [files, setFiles] = useState([]);
     const [urlList, setUrlList] = useState({}); // Declare urlList as a state variable
     const storage = getStorage();
@@ -30,7 +30,8 @@ const StorageList = () => {
         };
 
         fetchStorageContent();
-    }, []);
+    }, [variable]);
+
 
     return (
         <div>

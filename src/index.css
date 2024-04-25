@@ -30,7 +30,7 @@ body {
   min-width: 320px;
   background-color: #535bf2;
   min-height: 100vh;
-  background-image: url('./assets/inte.png');  
+  background-image: url('./assets/dark_back.jpg');  
   background-size: cover; /* Adjust the background size as needed */
   background-repeat: no-repeat;
   background-position: center;

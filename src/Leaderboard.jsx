@@ -30,6 +30,25 @@ const firestore = firebase.firestore();
 
 // Create a root reference
 
+function getRandomNumber() {
+  return Math.floor(Math.random() * 10) ;
+}
+
+const number = getRandomNumber() +1 ;
+
+const list_code = [
+  "fmsbreak",
+  "stomatology",
+  "digestive",
+  "cadiovascular",
+  "hematology",
+  "ent",
+  "traumatology",
+  "nephrology",
+  "biology",
+  "anatomy"
+  ]
+// console.log(getRandomNumber());
 
 
 // uploadBytes(storageRef, file).then((snapshot) => {
@@ -45,6 +64,7 @@ function Leaderboard() {
   const [SelectedFile, SetSelectedFile] = useState(null);
   const [codeEntered, setCodeEntered] = useState(0);
   const [color, setColor] = useState("white");
+  const [upstate, Setupstate] = useState('Upload your file');
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -103,6 +123,7 @@ const onFileUpload = () => {
       uploadBytes(storageRef, SelectedFile).then((snapshot) => {
           console.log('Uploaded a blob or file!');
           setColor('green');
+          Setupstate('File Uploaded');
 
 
           getDownloadURL(snapshot.ref).then((downloadURL) => {
@@ -209,7 +230,7 @@ const sortedPlayerData = playerData
 
   const handleCodeSubmit = () => {
     // Check if the entered code is correct (e.g., "mySecretCode")
-    if (inputValuec.trim() === "fmsbreak") {
+    if (inputValuec.trim() === list_code[number-1]) {
       setCodeEntered(2);
     }
     if (inputValuec.trim() === "amogus") {
@@ -223,7 +244,7 @@ const sortedPlayerData = playerData
    if (codeEntered === 0) {
     return (
       <div className="csoc">
-        <h1 className="whi">GAME START</h1>
+        <h1 className="whi">Rapid File Transfer</h1>
         <div className="fsoc">
           <div>
             <input
@@ -241,14 +262,15 @@ const sortedPlayerData = playerData
           </div>
         </div>
         <div>
-          <h2>The rules:</h2>
-          <p className="t">Each team is given a limited number of tickets</p>
-          <p className="t">Playing costs your team tickets so spend them wisely</p>
-          <p className="t">Each turn in a game costs one ticket</p>
-          <p className="t">Winning a game gives a certain number of points :</p>
-          <p className="t">Team vs team game : 3pts for the winner</p>
-          <p className="t">Multiple teams ex: 1st = 5pts /  2nd = 2pts / 3rd = 1pt</p>
-          <p className="t">Some games give More points some give Less</p>
+          <h2>Introduction:</h2>
+          <p className="t">This is just a little project to allow the fast  </p>
+          {/* {/* <p className="t">Playing costs your team tickets so spend them wisely</p> */}
+          <p className="t">transfer of the files between the users computer </p>
+          {/* {/* <p className="t">Winning a game gives a certain number of points :</p> */}
+          <p className="t">and the main screen in the classroom n: tc_c_{number}</p>
+          {/* <p className="t">Multiple teams ex: 1st = 5pts /  2nd = 2pts / 3rd = 1pt</p>
+          <p className="t">Some games give More points some give Less</p>  */}
+          <p className="tile"></p>
 
 
         </div>
@@ -317,7 +339,7 @@ if (codeEntered === 1)
   if (codeEntered === 2)
   {  return (
       <div className="cosoc">
-        <h1 className="whi" style={{color: color}} >Leaderboard</h1>
+        <h1 className="whi" style={{color: color}} >{upstate}</h1>
         <ul className="list">
           {sortedPlayerData &&
             sortedPlayerData.map((player) => (

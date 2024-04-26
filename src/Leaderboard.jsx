@@ -226,11 +226,11 @@ const sortedPlayerData = playerData
 
   
 
-
+const code_value = list_code[number-1];
 
   const handleCodeSubmit = () => {
     // Check if the entered code is correct (e.g., "mySecretCode")
-    if (inputValuec.trim() === list_code[number-1]) {
+    if (inputValuec.trim() === 'um6p' ) {
       setCodeEntered(2);
     }
     if (inputValuec.trim() === "amogus") {

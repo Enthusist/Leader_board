@@ -73,7 +73,7 @@
   list-style-type: none; /* Remove default list bullets */
   -ms-overflow-style: none;
   scrollbar-width: none;
-  height: 15rem;
+  height: 8rem;
   overflow-y: auto;
 }
 

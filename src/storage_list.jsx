@@ -1,5 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage';
+import "./Leaderboard.css";
 
 const StorageList = (variable) => {
     const [files, setFiles] = useState([]);
@@ -36,7 +38,7 @@ const StorageList = (variable) => {
     return (
         <div>
             <h2>Storage Content:</h2>
-            <ul>
+            <ul className='file_list'>
                 {files.map((file, index) => (
                     <li key={index}>
                         <a href={urlList[file]} target="_blank" rel="noopener noreferrer">{file}</a>

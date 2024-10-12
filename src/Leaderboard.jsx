@@ -1,12 +1,15 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import "./Leaderboard.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import crown from './assets/crown.png';
+// import crown from './assets/crown.png';
 // import { useDrag } from 'react-dnd'
+// eslint-disable-next-line no-unused-vars
 import axios from "axios";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+// eslint-disable-next-line no-unused-vars
+import { getStorage, ref, uploadBytes,  uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import StorageList from "./storage_list";
 
 
@@ -62,9 +65,10 @@ function Leaderboard() {
   const [inputValue, setInputValue] = useState("");
   const [inputValuec, setInputValuec] = useState("");
   const [SelectedFile, SetSelectedFile] = useState(null);
-  const [codeEntered, setCodeEntered] = useState(0);
+  const [codeEntered, setCodeEntered] = useState(2); // return to 0 for org code
   const [color, setColor] = useState("white");
   const [upstate, Setupstate] = useState('Upload your file');
+  const [progress, setProgress] = useState(0);
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -119,32 +123,47 @@ const onFileUpload = () => {
     const storage = getStorage();
 
     const storageRef = ref(storage, 'your-folder/' + SelectedFile.name); // Replace 'your-folder' with your desired folder in Firebase Storage
-
-      uploadBytes(storageRef, SelectedFile).then((snapshot) => {
-          console.log('Uploaded a blob or file!');
-          setColor('green');
-          Setupstate('File Uploaded');
+    const uploadTask = uploadBytesResumable(storageRef, SelectedFile);
 
 
-          getDownloadURL(snapshot.ref).then((downloadURL) => {
+    uploadTask.on('state_changed',
+      (snapshot) => {
+          // Calculate progress percentage
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setProgress(progress);
+          console.log('Upload is ' + progress + '% done');
+          
+          // Optional: Change color based on progress
+          if (progress === 100) {
+              setColor('#47ac47');
+              Setupstate('File Uploaded');
+          }
+      },
+      (error) => {
+          // Handle upload errors
+          console.error('Upload failed:', error);
+          setColor('red');
+          Setupstate('Upload Failed');
+      },
+      () => {
+          // Upload complete, get download URL
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
               console.log('File available at', downloadURL);
-              // Handle the download URL, you can save it in state or wherever you need
-          }).catch((error) => {
-              // Handle any errors
-              console.error('Error getting download URL:', error);
           });
-      }).catch((error) => {
-          // Handle any errors
-          console.error('Error uploading file:', error);
-      });
+      }
+
+
+  );
+  
   } else {
       console.log('No file selected!');
   }
 };
 
 useEffect(() => {
-            
-},[color]);
+  console.log(`The color changed to: ${color}`);
+}, [color]);
+
 
 const fileData = () => {
   if (SelectedFile) {
@@ -225,7 +244,7 @@ const sortedPlayerData = playerData
   : [];
 
   
-
+// eslint-disable-next-line no-unused-vars
 const code_value = list_code[number-1];
 
   const handleCodeSubmit = () => {
@@ -339,8 +358,10 @@ if (codeEntered === 1)
   if (codeEntered === 2)
   {  return (
       <div className="cosoc">
-        <h1 className="whi" style={{color: color}} >{upstate}</h1>
-        <ul className="list">
+         <progress value={progress} max="100"></progress>
+        <h1 className="whi" style={{color: color}} >{upstate.toUpperCase()}</h1>
+
+        {/* <ul className="list">
           {sortedPlayerData &&
             sortedPlayerData.map((player) => (
               <li
@@ -352,10 +373,12 @@ if (codeEntered === 1)
                 <p>Score: {player.score}</p>
               </li>
             ))}
-        </ul>
+        </ul> */}
+
         <div>
           <div>
                     <input
+                        className="inbox"
                         type="file"
                         onChange={onFileChange}
                         onClick={() => (setColor('white'))}

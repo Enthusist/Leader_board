@@ -43,7 +43,7 @@ body {
 
 @font-face {
   font-family: Massiva;
-  src: url(../public/Masiva-Black.TTF);
+  src: url(../public/Masiva-Black.ttf) format(ttf);
   
 }
 

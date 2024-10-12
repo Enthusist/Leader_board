@@ -387,7 +387,7 @@ if (codeEntered === 1)
                         Upload!
                     </button>
                 </div>
-                {fileData()}
+                {/* {fileData()} */}
             </div>
            
 

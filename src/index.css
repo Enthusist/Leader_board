@@ -15,7 +15,7 @@
 }
 
 a {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
@@ -23,7 +23,7 @@ a {
 
 }
 a:hover {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #6cd19f;
 }
 
@@ -56,14 +56,14 @@ body {
 h1 {
   
 /* font-weight:bolder; */
-  font-size: 3.5em;
+  font-size: 2.5em;
   line-height: 1.1;
 }
 
 h2 {
   color: aliceblue;
   font-family: Massiva;
-  font-size: 2.5em;
+  font-size: 1.5em;
   text-decoration: underline;
 }
 
@@ -92,7 +92,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #6cd19f;
   }
   button {
